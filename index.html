@@ -310,6 +310,24 @@
       </div>
     </div>    
   </section>
+  <section class="container mx-auto bg-white py-10 text-black flex flex-col justify-center gap-5 mb-[200px]">
+    <div class="flex items-center justify-between">
+      <h2 class="font-medium text-black text-[40px]">Referanslar</h2>
+      <div class="flex items-center gap-5">
+        <span class="text-black text-lg">Bütün referanslara bax</span>
+        <button class="referans-prev w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-black transition-all"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="referans-next w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:text-black transition-all"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  
+    <div class="relative">
+      <div class="swiper referansSwiper mt-6">
+        <div class="swiper-wrapper" id="referansSwiperWrapper">
+          <!-- Slides dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+  </section>  
 </main>
 
 <!-- Swiper JS -->
@@ -395,6 +413,55 @@
       hideFlags();
     });
   });
+</script>
+<script>
+  const extensions = ["webp", "png", "jpeg", "jpg"];
+  const wrapper = document.getElementById("referansSwiperWrapper");
+
+  const findImage = async (i) => {
+    for (const ext of extensions) {
+      const path = `img/ref-${i}.${ext}`;
+      try {
+        if ((await fetch(path, { method: 'HEAD' })).ok) return path;
+      } catch {}
+    }
+    return null;
+  };
+
+  const initSwiper = () => {
+    new Swiper(".referansSwiper", {
+      loop: true,
+      slidesPerView: 2,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: ".referans-next",
+        prevEl: ".referans-prev",
+      },
+      breakpoints: {
+        640: { slidesPerView: 3 },
+        768: { slidesPerView: 4 },
+        1024: { slidesPerView: 5 },
+      },
+    });
+  };
+
+  const loadImages = async () => {
+    for (let i = 1; i <= 29; i++) {
+      const src = await findImage(i);
+      if (!src) continue;
+
+      wrapper.innerHTML += `
+        <div class="swiper-slide flex justify-center items-center" id="ref-slide-${i}">
+          <div class="border rounded-xl p-6 shadow-sm w-full h-[120px] flex items-center justify-center">
+            <img src="${src}" alt="Reference ${i}" class="w-full max-h-20 object-contain" />
+          </div>
+        </div>
+      `;
+    }
+    initSwiper();
+  };
+
+  loadImages();
 </script>
 </body>
 </html>
