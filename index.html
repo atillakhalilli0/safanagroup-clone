@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SafanaGroup</title>
+  <link rel="shortcut icon" href="img/safanaonlyicon.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="stylesheet" href="output.css" />
+  <style>
+    @keyframes slide-in-left {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slide-in-right {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+    }
+
+    .slide-in-left {
+      animation: slide-in-left 0.6s ease forwards;
+    }
+
+    .slide-in-right {
+      animation: slide-in-right 0.6s ease forwards;
+    }
+  </style>
+</head>
+<body>
+  <header id="hero-header" class="overflow-hidden relative w-full h-screen bg-center bg-cover text-white" style="background-image: url('img/hero-1.jpg');">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-65 z-0"></div>
+
+    <div class="container mx-auto h-full flex flex-col justify-between py-5 relative z-10">
+      <div class="flex justify-between items-start">
+        <img src="img/safanalogo.png" class="h-12 object-cover filter brightness-0 invert" alt="logo" />
+        <div class="flex flex-col gap-5 items-end">
+          <div class="flex items-center gap-4">
+            <div class="flex gap-3 mr-5">
+              <img class="h-6 object-cover" src="img/en-flag.png" alt="lang" />
+              <img class="h-6 object-cover" src="img/rus-flag.png" alt="lang" />
+              <img class="h-6 object-cover" src="img/az-flag.png" alt="lang" />
+            </div>
+            <i class="fa-brands fa-facebook text-2xl cursor-pointer"></i>
+            <i class="fa-brands fa-linkedin text-2xl cursor-pointer"></i>
+            <i class="fa-brands fa-instagram text-2xl cursor-pointer"></i>
+            <i class="fa-brands fa-youtube text-2xl cursor-pointer"></i>
+          </div>
+          <nav class="flex">
+            <ul class="flex gap-5 uppercase mr-7">
+              <li class="cursor-pointer">haqqımızda</li>
+              <li class="cursor-pointer">məhsullar</li>
+              <li class="cursor-pointer">xidmətlər</li>
+              <li class="cursor-pointer">yeniliklər</li>
+              <li class="cursor-pointer">əlaqə</li>
+            </ul>
+            <div>
+              <a class="px-3 py-3 bg-[#fa4d09] uppercase font-semibold rounded-full" href="#">qiymət təklifi al</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main Content with Side Arrows -->
+      <div class="relative flex items-center justify-center h-full">
+        <!-- Left Arrow -->
+        <button id="prev-slide" class="absolute left-0 w-10 h-10 hover:bg-opacity-50 transition rounded-full flex items-center justify-center text-white px-20 py-80 outline-none z-20">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Center Content -->
+        <div id="content-carousel" class="absolute w-full h-full flex items-center justify-center">
+          <div id="content-slide-0" class="text-center flex flex-col gap-7 items-start justify-center absolute inset-0 px-20">
+            <span class="uppercase text-[18px]"><i class="fa-solid fa-circle text-red-700"></i> safana</span>
+            <h1 class="text-[60px] md:text-6xl font-semibold mb-4 leading-tight text-start w-[90%]">Bir məkanda axtardığınız hər şey !</h1>
+            <a href="#" class="bg-[#fa4d09] text-[16px] hover:bg-orange-600 transition px-14 py-4 mt-3 rounded-[24px] uppercase font-medium shadow-[rgba(198,_130,_38,_0.79)_10px_10px_100px_10px]">Ətraflı Məlumat</a>
+          </div>
+          
+          <div id="content-slide-1" class="text-center flex flex-col gap-7 items-start justify-center absolute inset-0 px-20 hidden">
+            <span class="uppercase text-[18px]"><i class="fa-solid fa-circle text-red-700"></i> safana</span>
+            <h1 class="text-[60px] md:text-6xl font-semibold mb-4 leading-tight text-start w-[90%]">Keyfiyyət və müasirliyin ahəngi</h1>
+            <a href="#" class="bg-[#fa4d09] text-[16px] hover:bg-orange-600 transition px-14 py-4 mt-3 rounded-[24px] uppercase font-medium shadow-[rgba(198,_130,_38,_0.79)_10px_10px_100px_10px]">Ətraflı Məlumat</a>
+          </div>
+          
+          <div id="content-slide-2" class="text-center flex flex-col gap-7 items-start justify-center absolute inset-0 px-20 hidden">
+            <span class="uppercase text-[18px]"><i class="fa-solid fa-circle text-red-700"></i> safana</span>
+            <h1 class="text-[60px] md:text-6xl font-semibold mb-4 leading-tight text-start w-[90%]">Peşəkar kollektivin ideal işdə rolu</h1>
+            <a href="#" class="bg-[#fa4d09] text-[16px] hover:bg-orange-600 transition px-14 py-4 mt-3 rounded-[24px] uppercase font-medium shadow-[rgba(198,_130,_38,_0.79)_10px_10px_100px_10px]">Ətraflı Məlumat</a>
+          </div>
+        </div>
+
+        <!-- Right Arrow -->
+        <button id="next-slide" class="absolute right-0 w-10 h-10 hover:bg-opacity-50 transition rounded-full flex items-center justify-center text-white px-20 py-80 outline-none z-20">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Pagination Controls -->
+      <div class="flex justify-center items-center mb-8">
+        <div id="pagination" class="flex gap-2"></div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = [
+        'url("img/hero-1.jpg")',
+        'url("img/hero-2.jpeg")',
+        'url("img/hero-3.jpeg")'
+      ];
+  
+      let current = 0;
+      const header = document.getElementById('hero-header');
+      const pagination = document.getElementById('pagination');
+      const contentSlides = [
+        document.getElementById('content-slide-0'),
+        document.getElementById('content-slide-1'),
+        document.getElementById('content-slide-2')
+      ];
+  
+      function changeSlide(newIndex) {
+        if (newIndex === current) return;
+  
+        const direction = newIndex > current ? 'slide-in-right' : 'slide-in-left';
+        
+        // Background image transition
+        const animDiv = document.createElement('div');
+        animDiv.className = `absolute inset-0 bg-cover bg-center z-0 ${direction}`;
+        animDiv.style.backgroundImage = images[newIndex];
+        header.appendChild(animDiv);
+        
+        // Content transition
+        const nextSlide = contentSlides[newIndex];
+        const currentSlide = contentSlides[current];
+        
+        // Hide current slide
+        currentSlide.classList.add('hidden');
+        
+        // Prepare and show next slide with animation
+        nextSlide.classList.remove('hidden');
+        nextSlide.classList.add(direction);
+        
+        setTimeout(() => {
+          header.style.backgroundImage = images[newIndex];
+          animDiv.remove();
+          
+          // Reset animation class
+          nextSlide.classList.remove(direction);
+          
+          current = newIndex;
+          updateDots();
+        }, 600);
+      }
+  
+      function updateDots() {
+        Array.from(pagination.children).forEach((dot, idx) => {
+          dot.className = `w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 ${
+            idx === current ? 'bg-[#fa4d09]' : 'bg-white bg-opacity-30'
+          }`;
+        });
+      }
+  
+      function createDots() {
+        images.forEach((_, i) => {
+          const dot = document.createElement('div');
+          dot.addEventListener('click', () => changeSlide(i));
+          pagination.appendChild(dot);
+        });
+        updateDots();
+      }
+  
+      document.getElementById('prev-slide').addEventListener('click', () => {
+        changeSlide((current - 1 + images.length) % images.length);
+      });
+  
+      document.getElementById('next-slide').addEventListener('click', () => {
+        changeSlide((current + 1) % images.length);
+      });
+  
+      createDots();
+    });
+  </script>  
+</body>
+</html>
