@@ -8,6 +8,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
   <link rel="stylesheet" href="output.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    @layer utilities {
+      @keyframes bounce-scale {
+        0%, 100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-10%) scale(1.5);
+        }
+      }
+
+      .hover\:animate-bounce-scale:hover {
+        animation: bounce-scale 0.6s infinite;
+      }
+    }
+  </style>
 </head>
 <body class="text-white">
 
@@ -138,6 +154,24 @@
           <img class="h-[70px] w-[70px] object-contain" src="img/section-1-5.png" alt="info" />
         </div>
         <p class="text-gray-600 w-[80%] mt-4 group-hover:text-[#fa4d09] transition-all duration-[.5s]">Zəmanətli məhsullar</p>
+      </div>
+    </div>
+  </section>
+  <section class="py-36 bg-[#fa4d09] relative">
+    <div class="container mx-auto">
+      <div class="flex flex-col gap-5 w-[40%]">
+        <h1 class="text-5xl">Şirkət haqqında</h1>
+        <p class="text-xl font-extralight leading-norma">SAFANAGROUP MMC şirkəti 1993-cü ildən etibarən fəalliyyətə başlamış, özünəməxsus iş prinsipi, yüksək səviyyəli peşəkar kollektivi ilə hər zaman seçilmişdir.</p>
+        <button class="text-black font-semibold text-center bg-white rounded-[15px] py-3 px-[10px] transition-all min-w-[190px] w-[190px]">Daha ətraflı</button>
+      </div>
+      <a href="https://youtu.be/-bnKDjVViNI?si=UmDIHPUEvwpovA3j" target="_blank">
+        <div class="w-[491px] h-[400px] absolute right-32 bottom-40 bg-red-600 hover:bg-red-700 transition-all flex justify-center items-center">
+          <i class="fa-solid fa-circle-play text-[85px] hover:scale-110 transition-all"></i>
+        </div>
+      </a>
+      <div class="w-[700px] h-[250px] rounded-tl-3xl flex justify-center items-center gap-10 bg-white px-5 absolute right-0 bottom-0">
+        <i class="fa-solid fa-arrow-up text-[#fa4d09] text-2xl hover:animate-bounce-scale"></i>
+        <p class="text-xl text-black">SAFANAGROUP MMC olaraq 30 illik fəalliyətimiz dövründə kifayət qədər geniş həcmli işlərin öhdəsindn uğurla gəlmiş, müştəri məmnuniyyətimizi hər zaman qoruyub saxlaya bilmişik.</p>
       </div>
     </div>
   </section>
