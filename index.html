@@ -42,11 +42,11 @@
       <img src="img/safanalogo.png" class="h-12 object-cover filter brightness-0 invert" alt="logo" />
       <div class="flex flex-col gap-5 items-end">
         <div class="flex items-center gap-4">
-          <div class="flex gap-3 mr-5">
-            <img class="h-6 object-cover" src="img/en-flag.png" alt="lang" />
-            <img class="h-6 object-cover" src="img/rus-flag.png" alt="lang" />
-            <img class="h-6 object-cover" src="img/az-flag.png" alt="lang" />
-          </div>
+          <div id="flags" class="flex gap-3 mr-5 relative w-[24px] overflow-hidden transition-all duration-500">
+            <img class="flag h-6 object-cover cursor-pointer" src="img/az-flag.png" alt="az" />
+            <img class="flag h-6 object-cover cursor-pointer" src="img/en-flag.png" alt="en" />
+            <img class="flag h-6 object-cover cursor-pointer" src="img/rus-flag.png" alt="ru" />
+          </div>          
           <i class="fa-brands fa-facebook text-2xl cursor-pointer"></i>
           <i class="fa-brands fa-linkedin text-2xl cursor-pointer"></i>
           <i class="fa-brands fa-instagram text-2xl cursor-pointer"></i>
@@ -243,6 +243,48 @@
       modal.classList.add('hidden');
       iframe.setAttribute('src', ''); // Stop video on outside click
     }
+  });
+</script>
+<script>
+  const flagsContainer = document.getElementById('flags');
+  const flags = document.querySelectorAll('#flags img');
+
+  let selectedFlag = flags[0]; // Default selected AZ flag
+
+  function showAllFlags() {
+    flagsContainer.style.width = "100px"; // Expand container width
+  }
+
+  function hideFlags() {
+    flagsContainer.style.width = "24px"; // Collapse back to single flag
+    flags.forEach(flag => {
+      if (flag !== selectedFlag) {
+        flag.style.display = 'none';
+      }
+    });
+  }
+
+  // Initially hide others
+  flags.forEach(flag => {
+    if (flag !== selectedFlag) {
+      flag.style.display = 'none';
+    }
+  });
+
+  flagsContainer.addEventListener('mouseenter', () => {
+    flags.forEach(flag => flag.style.display = 'block');
+    showAllFlags();
+  });
+
+  flagsContainer.addEventListener('mouseleave', () => {
+    hideFlags();
+  });
+
+  flags.forEach(flag => {
+    flag.addEventListener('click', () => {
+      selectedFlag = flag;
+      hideFlags();
+    });
   });
 </script>
 </body>
