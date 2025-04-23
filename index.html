@@ -172,11 +172,29 @@
         <p class="text-xl font-extralight leading-norma">SAFANAGROUP MMC şirkəti 1993-cü ildən etibarən fəalliyyətə başlamış, özünəməxsus iş prinsipi, yüksək səviyyəli peşəkar kollektivi ilə hər zaman seçilmişdir.</p>
         <button class="text-black font-semibold text-center bg-white rounded-[15px] py-3 px-[10px] transition-all min-w-[190px] w-[190px]">Daha ətraflı</button>
       </div>
-      <a href="https://youtu.be/-bnKDjVViNI?si=UmDIHPUEvwpovA3j" target="_blank">
-        <div class="w-[491px] h-[400px] absolute right-32 bottom-40 bg-red-600 hover:bg-red-700 transition-all flex justify-center items-center">
-          <i class="fa-solid fa-circle-play text-[85px] hover:scale-110 transition-all"></i>
+      <div id="openModal" class="w-[491px] h-[400px] absolute right-32 bottom-40 bg-red-600 hover:bg-red-700 transition-all flex justify-center items-center cursor-pointer">
+        <i class="fa-solid fa-circle-play text-[85px] hover:scale-110 transition-all"></i>
+      </div>
+      
+      <!-- Modal -->
+      <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="relative rounded-lg shadow-lg max-w-[90%] w-[1000px]">
+          <!-- Close Button -->
+          <button id="closeModal" class="absolute top-[-50px] right-2 text-gray-300 text-5xl hover:text-red-500 transition-all">&times;</button>
+
+          <!-- YouTube iframe container -->
+          <div class="w-full aspect-video">
+            <iframe id="videoFrame"
+                    class="w-full h-full"
+                    data-src="https://www.youtube.com/embed/-bnKDjVViNI?autoplay=1&si=izkDW38-RgDMPv7x"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+            </iframe>
+          </div>
         </div>
-      </a>
+      </div>
       <div class="w-[700px] h-[250px] rounded-tl-3xl flex justify-center items-center gap-10 bg-white px-5 absolute right-0 bottom-0">
         <i class="fa-solid fa-arrow-up text-[#fa4d09] text-2xl hover:animate-bounce-scale"></i>
         <p class="text-xl text-black">SAFANAGROUP MMC olaraq 30 illik fəalliyətimiz dövründə kifayət qədər geniş həcmli işlərin öhdəsindn uğurla gəlmiş, müştəri məmnuniyyətimizi hər zaman qoruyub saxlaya bilmişik.</p>
@@ -200,6 +218,30 @@
     pagination: {
       el: '.swiper-pagination',
       clickable: true
+    }
+  });
+</script>
+<script>
+  const openModalBtn = document.getElementById('openModal');
+  const modal = document.getElementById('videoModal');
+  const closeModalBtn = document.getElementById('closeModal');
+  const iframe = document.getElementById('videoFrame');
+  const iframeSrc = iframe.getAttribute('data-src');
+
+  openModalBtn.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+    iframe.setAttribute('src', iframeSrc); // Set src to autoplay video
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    iframe.setAttribute('src', ''); // Stop the video
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      iframe.setAttribute('src', ''); // Stop video on outside click
     }
   });
 </script>
