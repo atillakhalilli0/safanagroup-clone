@@ -53,37 +53,78 @@
 <body class="text-white">
 
 <header class="relative w-full h-screen bg-black">
-  <!-- Navbar (Static Header Top) -->
-  <div class="absolute top-0 left-0 w-full z-20">
-    <div class="container mx-auto py-5 flex justify-between items-start">
-      <img src="img/safanalogo.png" class="h-12 object-cover filter brightness-0 invert" alt="logo" />
-      <div class="flex flex-col gap-5 items-end">
-        <div class="flex items-center gap-4">
-          <div id="flags" class="flex gap-3 mr-5 relative w-[24px] overflow-hidden transition-all duration-500">
-            <img class="flag h-6 object-cover cursor-pointer" src="img/az-flag.png" alt="az" />
-            <img class="flag h-6 object-cover cursor-pointer" src="img/en-flag.png" alt="en" />
-            <img class="flag h-6 object-cover cursor-pointer" src="img/rus-flag.png" alt="ru" />
-          </div>          
-          <i class="fa-brands fa-facebook text-2xl cursor-pointer"></i>
-          <i class="fa-brands fa-linkedin text-2xl cursor-pointer"></i>
-          <i class="fa-brands fa-instagram text-2xl cursor-pointer"></i>
-          <i class="fa-brands fa-youtube text-2xl cursor-pointer"></i>
+<!-- Navbar (Static Header Top) -->
+<div id="navbar" class="absolute top-0 left-0 w-full z-20 transition-all duration-300">
+  <div class="container mx-auto py-5 flex justify-between items-center transition-all duration-300">
+    
+    <!-- Logo -->
+    <img id="logo" src="img/safanalogo.png" class="h-12 object-cover filter brightness-0 invert transition-all duration-300" alt="logo" />
+
+    <button id="hamburger" class="block lg:hidden text-2xl text-white transition-all duration-300">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    
+    <!-- Right Side: Flags, Socials, Nav -->
+    <div id="right-side" class="hidden lg:flex flex-col-reverse gap-5 items-end transition-all duration-300">
+
+      <!-- Social Icons (Hide on Scroll) -->
+      <div id="social" class="flex items-center gap-4 md:order-3 transition-all duration-300">
+        <div id="flags" class="flex gap-3 relative w-auto transition-all duration-300">
+          <img class="flag h-6 object-cover cursor-pointer" src="img/az-flag.png" alt="az" />
+          <img class="flag h-6 object-cover cursor-pointer" src="img/en-flag.png" alt="en" />
+          <img class="flag h-6 object-cover cursor-pointer" src="img/rus-flag.png" alt="ru" />
         </div>
-        <nav class="flex">
-          <ul class="flex gap-5 uppercase mr-7">
-            <li class="cursor-pointer hover:underline">haqqımızda</li>
-            <li class="cursor-pointer hover:underline">məhsullar</li>
-            <li class="cursor-pointer hover:underline">xidmətlər</li>
-            <li class="cursor-pointer hover:underline">yeniliklər</li>
-            <li class="cursor-pointer hover:underline">əlaqə</li>
-          </ul>
-          <div>
-            <a class="px-3 py-3 bg-[#fa4d09] uppercase font-semibold rounded-full" href="#">qiymət təklifi al</a>
-          </div>
-        </nav>
+        <i class="fa-brands fa-facebook text-2xl cursor-pointer hover:opacity-70 transition-all duration-[.4s]"></i>
+        <i class="fa-brands fa-linkedin text-2xl cursor-pointer hover:opacity-70 transition-all duration-[.4s]"></i>
+        <i class="fa-brands fa-instagram text-2xl cursor-pointer hover:opacity-70 transition-all duration-[.4s]"></i>
+        <i class="fa-brands fa-youtube text-2xl cursor-pointer hover:opacity-70 transition-all duration-[.4s]"></i>
       </div>
+
+      <!-- Navigation + Button -->
+      <nav class="flex flex-col md:flex-row items-end md:items-center gap-4 md:gap-6">
+        <ul class="flex gap-5 uppercase text-base font-normal">
+          <li class="cursor-pointer hover:underline">haqqımızda</li>
+          <li class="cursor-pointer hover:underline">məhsullar</li>
+          <li class="cursor-pointer hover:underline">xidmətlər</li>
+          <li class="cursor-pointer hover:underline">yeniliklər</li>
+          <li class="cursor-pointer hover:underline">əlaqə</li>
+        </ul>
+        <div>
+          <a class="px-5 py-3 bg-[#fa4d09] hover:bg-[#d53f04] transition-all duration-[.4s] uppercase font-semibold rounded-full text-white whitespace-nowrap text-sm" href="#">qiymət təklifi al</a>
+        </div>
+      </nav>
     </div>
   </div>
+</div>
+<!-- Mobile Sidebar -->
+<div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 md:hidden p-6 flex flex-col gap-6">
+  <!-- Close Button -->
+  <div class="flex justify-end">
+    <button id="closeMenu"><i class="fa-solid fa-xmark text-2xl"></i></button>
+  </div>
+
+  <!-- Flags -->
+  <div class="flex gap-3">
+    <img class="h-6 object-cover cursor-pointer" src="img/az-flag.png" alt="az" />
+    <img class="h-6 object-cover cursor-pointer" src="img/en-flag.png" alt="en" />
+    <img class="h-6 object-cover cursor-pointer" src="img/rus-flag.png" alt="ru" />
+  </div>
+
+  <!-- Nav Links -->
+  <ul class="flex flex-col gap-4 uppercase text-base text-black font-semibold">
+    <li class="cursor-pointer hover:underline">haqqımızda</li>
+    <li class="cursor-pointer hover:underline">məhsullar</li>
+    <li class="cursor-pointer hover:underline">xidmətlər</li>
+    <li class="cursor-pointer hover:underline">yeniliklər</li>
+    <li class="cursor-pointer hover:underline">əlaqə</li>
+  </ul>
+
+  <!-- CTA Button -->
+  <a class="px-5 py-3 mt-4 bg-[#fa4d09] hover:bg-[#d53f04] transition-all duration-300 text-white rounded-full text-center text-sm uppercase font-semibold" href="#">
+    qiymət təklifi al
+  </a>
+</div>
+
 
   <!-- Swiper Slider -->
   <div class="swiper mySwiper w-full h-full pt-[120px]">
@@ -95,7 +136,7 @@
         <div class="container mx-auto h-full flex items-center justify-center relative px-20 z-10">
           <div class="flex flex-col gap-7 items-start justify-center w-[90%]">
             <span class="uppercase text-[18px]"><i class="fa-solid fa-circle text-red-700"></i> safana</span>
-            <h1 class="text-[60px] md:text-6xl font-semibold mb-4 leading-tight text-start">Bir məkanda axtardığınız hər şey !</h1>
+            <h1 class="text-[30px] md:text-6xl font-semibold mb-4 leading-tight text-start">Bir məkanda axtardığınız hər şey !</h1>
             <a href="#" class="bg-[#fa4d09] text-[16px] hover:bg-orange-600 transition px-14 py-4 rounded-[24px] uppercase font-medium shadow-[rgba(198,_130,_38,_0.79)_10px_10px_100px_10px]">Ətraflı Məlumat</a>
           </div>
         </div>
@@ -107,7 +148,7 @@
         <div class="container mx-auto h-full flex items-center justify-center relative px-20 z-10">
           <div class="flex flex-col gap-7 items-start justify-center w-[90%]">
             <span class="uppercase text-[18px]"><i class="fa-solid fa-circle text-red-700"></i> safana</span>
-            <h1 class="text-[60px] md:text-6xl font-semibold mb-4 leading-tight text-start">Keyfiyyət və müasirliyin ahəngi</h1>
+            <h1 class="text-[30px] md:text-6xl font-semibold mb-4 leading-tight text-start">Keyfiyyət və müasirliyin ahəngi</h1>
             <a href="#" class="bg-[#fa4d09] text-[16px] hover:bg-orange-600 transition px-14 py-4 rounded-[24px] uppercase font-medium shadow-[rgba(198,_130,_38,_0.79)_10px_10px_100px_10px]">Ətraflı Məlumat</a>
           </div>
         </div>
@@ -119,7 +160,7 @@
         <div class="container mx-auto h-full flex items-center justify-center relative px-20 z-10">
           <div class="flex flex-col gap-7 items-start justify-center w-[90%]">
             <span class="uppercase text-[18px]"><i class="fa-solid fa-circle text-red-700"></i> safana</span>
-            <h1 class="text-[60px] md:text-6xl font-semibold mb-4 leading-tight text-start">Peşəkar kollektivin ideal işdə rolu</h1>
+            <h1 class="text-[30px] md:text-6xl font-semibold mb-4 leading-tight text-start">Peşəkar kollektivin ideal işdə rolu</h1>
             <a href="#" class="bg-[#fa4d09] text-[16px] hover:bg-orange-600 transition px-14 py-4 rounded-[24px] uppercase font-medium shadow-[rgba(198,_130,_38,_0.79)_10px_10px_100px_10px]">Ətraflı Məlumat</a>
           </div>
         </div>
@@ -571,6 +612,68 @@
   };
 
   loadImages();
+</script>
+<script>
+  window.addEventListener("scroll", () => {
+    const navbar = document.getElementById("navbar");
+    const logo = document.getElementById("logo");
+    const social = document.getElementById("social");
+    const flags = document.getElementById("flags");
+    const nav = document.querySelector("nav ul");
+
+    if (window.scrollY > 80) {
+      // Navbar fixed with white background
+      navbar.classList.remove("absolute");
+      navbar.classList.add("fixed", "bg-white", "shadow", "text-black");
+
+      // Logo becomes dark
+      logo.classList.remove("invert", "brightness-0");
+
+      // Hide social icons
+      social.classList.add("md:hidden");
+
+      // Move flags before nav list if not already moved
+      if (!nav.parentNode.querySelector("#flags")) {
+        nav.parentNode.insertBefore(flags, nav);
+      }
+
+    } else {
+      // Navbar back to transparent absolute
+      navbar.classList.remove("fixed", "bg-white", "shadow", "text-black");
+      navbar.classList.add("absolute");
+
+      // Logo becomes white
+      logo.classList.add("invert", "brightness-0");
+
+      // Show full social section
+      social.classList.remove("md:hidden");
+
+      // Move flags back to original inside #social
+      if (!social.querySelector("#flags")) {
+        social.insertBefore(flags, social.firstChild);
+      }
+    }
+  });
+</script>
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeMenu = document.getElementById("closeMenu");
+
+  hamburger.addEventListener("click", () => {
+    mobileMenu.classList.remove("translate-x-full");
+  });
+
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.add("translate-x-full");
+  });
+
+  // Optional: Close sidebar on outside click
+  window.addEventListener("click", (e) => {
+    if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      mobileMenu.classList.add("translate-x-full");
+    }
+  });
 </script>
 </body>
 </html>
