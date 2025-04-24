@@ -40,12 +40,12 @@
     }
     @keyframes bounce-left {
       0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(20px); }
+      50% { transform: translateX(-20px); }
     }
     
     @keyframes bounce-right {
       0%, 100% { transform: translateX(0) scaleX(-1); }
-      50% { transform: translateX(-20px) scaleX(-1); }
+      50% { transform: translateX(20px) scaleX(-1); }
     }
 
     .bounce-left {
@@ -108,12 +108,29 @@
           <i class="fa-brands fa-youtube text-2xl cursor-pointer hover:opacity-70 transition-all duration-[.4s]"></i>
         </div>
   
-        <!-- Navigation + Button -->
         <nav class="flex flex-col md:flex-row items-end md:items-center gap-4 md:gap-6">
-          <ul class="flex gap-5 uppercase text-base font-normal">
-            <li class="relative cursor-pointer group">
+          <ul class="flex gap-5 uppercase text-base font-normal relative">
+            
+            <!-- Haqqımızda with dropdown -->
+            <li class="relative group cursor-pointer">
               <span class="hover-underline">haqqımızda</span>
+              <ul class="absolute capitalize left-0 top-full mt-1 hidden group-hover:flex flex-col bg-white text-black/70 shadow-lg rounded-md z-50 min-w-[160px]">
+                
+                <!-- Subitem with right-side dropdown -->
+                <li class="relative group/inner px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  Haqqımızda
+                  <ul class="absolute top-0 left-full hidden group-hover/inner:flex flex-col bg-white text-black/70 shadow-lg rounded-md min-w-[160px]">
+                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Əməkdaşlıq</li>
+                  </ul>
+                </li>
+        
+                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Sertifikatlar</li>
+                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Rəhbərlik</li>
+                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Karyera</li>
+              </ul>
             </li>
+            
+            <!-- Other nav items -->
             <li class="relative cursor-pointer group">
               <span class="hover-underline">məhsullar</span>
             </li>
@@ -127,10 +144,14 @@
               <span class="hover-underline">əlaqə</span>
             </li>
           </ul>
+        
+          <!-- CTA Button -->
           <div>
-            <a class="px-5 py-3 bg-[#fa4d09] hover:bg-[#d53f04] transition-all duration-[.4s] uppercase font-semibold rounded-full text-white whitespace-nowrap text-sm" href="#">qiymət təklifi al</a>
+            <a class="px-5 py-3 bg-[#fa4d09] hover:bg-[#d53f04] transition-all duration-[.4s] uppercase font-semibold rounded-full text-white whitespace-nowrap text-sm" href="#">
+              qiymət təklifi al
+            </a>
           </div>
-        </nav>        
+        </nav>
       </div>
     </div>
   </div>
