@@ -180,13 +180,29 @@
     </div>
   
     <!-- Nav Links -->
-    <ul class="flex flex-col gap-4 uppercase text-base text-black font-medium">
-      <li class="cursor-pointer hover:text-[#fa4d09] transition-colors duration-300 border-b border-gray-100 pb-2">haqqımızda</li>
+    <ul class="flex flex-col gap-2 capitalize text-[24px] text-[#454749] font-normal">
+
+      <!-- Accordion Item: Haqqımızda -->
+      <li class="border-b border-gray-100 pb-2">
+        <button class="w-full flex capitalize justify-between items-center text-left hover:text-[#fa4d09] transition-all duration-300 accordion-toggle">
+          haqqımızda
+          <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+        </button>
+        <ul class="accordion-content hidden mt-2 ml-4 flex-col gap-2 text-base text-black">
+          <li class="cursor-pointer hover:text-[#fa4d09] list-disc underline transition-colors duration-300">Şirkət Haqqında</li>
+          <li class="cursor-pointer hover:text-[#fa4d09] list-disc underline transition-colors duration-300">Əməkdaşlıq</li>
+          <li class="cursor-pointer hover:text-[#fa4d09] list-disc underline transition-colors duration-300">Sertifikatlar</li>
+          <li class="cursor-pointer hover:text-[#fa4d09] list-disc underline transition-colors duration-300">Rəhbərlik</li>
+          <li class="cursor-pointer hover:text-[#fa4d09] list-disc underline transition-colors duration-300">Karyera</li>
+        </ul>
+      </li>
+    
+      <!-- Other Items -->
       <li class="cursor-pointer hover:text-[#fa4d09] transition-colors duration-300 border-b border-gray-100 pb-2">məhsullar</li>
       <li class="cursor-pointer hover:text-[#fa4d09] transition-colors duration-300 border-b border-gray-100 pb-2">xidmətlər</li>
       <li class="cursor-pointer hover:text-[#fa4d09] transition-colors duration-300 border-b border-gray-100 pb-2">yeniliklər</li>
       <li class="cursor-pointer hover:text-[#fa4d09] transition-colors duration-300 border-b border-gray-100 pb-2">əlaqə</li>
-    </ul>
+    </ul>    
   
     <!-- Social Icons Mobile -->
     <div class="flex justify-center gap-6 mt-4">
@@ -323,14 +339,7 @@
 
           <!-- YouTube iframe container -->
           <div class="w-full aspect-video">
-            <iframe id="videoFrame"
-                    class="w-full h-full"
-                    data-src="https://www.youtube.com/embed/-bnKDjVViNI?autoplay=1&si=izkDW38-RgDMPv7x"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-            </iframe>
+            <iframe id="videoFrame" class="w-full h-full" src="https://www.youtube.com/embed/n3XTZde8ZvQ?si=qwQdGv11ePQxzlPD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -773,6 +782,17 @@
         social.insertBefore(flags, social.firstChild);
       }
     }
+  });
+</script>
+<script>
+  document.querySelectorAll('.accordion-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('i');
+
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    });
   });
 </script>
 </body>
