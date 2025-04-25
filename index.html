@@ -334,15 +334,28 @@
       <!-- Modal -->
       <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
         <div class="relative rounded-lg shadow-lg max-w-[90%] w-[1000px]">
+          
           <!-- Close Button -->
-          <button id="closeModal" class="absolute top-[-50px] right-2 text-gray-300 text-5xl hover:text-red-500 transition-all">&times;</button>
-
+          <button id="closeModal" class="absolute top-[-50px] right-2 text-gray-300 text-5xl hover:text-red-500 transition-all">
+            &times;
+          </button>
+      
           <!-- YouTube iframe container -->
           <div class="w-full aspect-video">
-            <iframe id="videoFrame" class="w-full h-full" src="https://www.youtube.com/embed/EFmxPMdBqmU?si=uRUBZNYF3Yii9B1u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe id="videoFrame"
+              class="w-full h-full"
+              src=""
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
           </div>
+      
         </div>
       </div>
+      
       <div class="w-[700px] h-[250px] rounded-tl-3xl flex max-lg:hidden justify-center items-center gap-10 bg-white px-5 absolute right-0 bottom-0">
         <i class="fa-solid fa-arrow-up text-[#fa4d09] text-2xl hover:animate-bounce-scale"></i>
         <p class="text-xl text-black">SAFANAGROUP MMC olaraq 30 illik fəalliyətimiz dövründə kifayət qədər geniş həcmli işlərin öhdəsindn uğurla gəlmiş, müştəri məmnuniyyətimizi hər zaman qoruyub saxlaya bilmişik.</p>
@@ -597,22 +610,23 @@
   const modal = document.getElementById('videoModal');
   const closeModalBtn = document.getElementById('closeModal');
   const iframe = document.getElementById('videoFrame');
-  const iframeSrc = iframe.getAttribute('data-src');
+
+  const YOUTUBE_ID = "66oL5wGqNoo";
 
   openModalBtn.addEventListener('click', () => {
+    iframe.setAttribute('src', `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1`);
     modal.classList.remove('hidden');
-    iframe.setAttribute('src', iframeSrc); // Set src to autoplay video
   });
 
   closeModalBtn.addEventListener('click', () => {
+    iframe.setAttribute('src', '');
     modal.classList.add('hidden');
-    iframe.setAttribute('src', ''); // Stop the video
   });
 
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
+      iframe.setAttribute('src', '');
       modal.classList.add('hidden');
-      iframe.setAttribute('src', ''); // Stop video on outside click
     }
   });
 </script>
